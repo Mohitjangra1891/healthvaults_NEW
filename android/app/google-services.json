@@ -1,0 +1,134 @@
+{
+  "project_info": {
+    "project_number": "189160314701",
+    "project_id": "medvault-application-e58be",
+    "storage_bucket": "medvault-application-e58be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189160314701:android:ee3fc189e9583efa42c904",
+        "android_client_info": {
+          "package_name": "com.demo.medvault"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189160314701-2dp95c8mpsoppl5tl8dhkc40diesb9je.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.demo.medvault",
+            "certificate_hash": "5ddf4f928ad5254849b9b05cefb47b348b091712"
+          }
+        },
+        {
+          "client_id": "189160314701-ufg10ip7355p3ab6s4kgb0h1gvje0doo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzZlmFg9-QUYXKBKDCYUHPMWm_n-63Isw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189160314701-ufg10ip7355p3ab6s4kgb0h1gvje0doo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "189160314701-2527h7v24iak5053s57bk2vl8v4to61s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.healthvaults"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189160314701:android:0efadbcfe503e85542c904",
+        "android_client_info": {
+          "package_name": "com.example.healthvaults"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189160314701-4682aq0rnk2s9oo5nj2om0g4g7eif0k9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthvaults",
+            "certificate_hash": "68ad5b5bfd9286491190c5368f577457f1e2b27c"
+          }
+        },
+        {
+          "client_id": "189160314701-ufg10ip7355p3ab6s4kgb0h1gvje0doo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzZlmFg9-QUYXKBKDCYUHPMWm_n-63Isw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189160314701-ufg10ip7355p3ab6s4kgb0h1gvje0doo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "189160314701-2527h7v24iak5053s57bk2vl8v4to61s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.healthvaults"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189160314701:android:0a4101ce7df4f3fe42c904",
+        "android_client_info": {
+          "package_name": "com.example.medvault"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189160314701-ufg10ip7355p3ab6s4kgb0h1gvje0doo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzZlmFg9-QUYXKBKDCYUHPMWm_n-63Isw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189160314701-ufg10ip7355p3ab6s4kgb0h1gvje0doo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "189160314701-2527h7v24iak5053s57bk2vl8v4to61s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.healthvaults"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
