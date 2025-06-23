@@ -85,16 +85,22 @@ class _editUserProfileSceenState extends ConsumerState<editUserProfileSceen> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: false,
-        automaticallyImplyLeading: false,
-        title: Text("Just a few more details..."),
+        title: Text("Profile Information"),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
+
             children: [
               const SizedBox(height: 32),
+              Text(
+                "Please fill you profile details ",
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 17),
+              ),
+              const SizedBox(height: 22),
               ProfileImagePicker2(
                 image: pickedImage,
                 onImagePicked: (img) => setState(() => pickedImage = img),
@@ -106,7 +112,15 @@ class _editUserProfileSceenState extends ConsumerState<editUserProfileSceen> {
               const SizedBox(height: 32),
               TextFormField(
                 controller: nameController,
-                decoration: const InputDecoration(labelText: 'Name'),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)
+                  ),
+                  labelText: "Email Address",
+                ),
+                onTapOutside: (PointerDownEvent) {
+                  FocusScope.of(context).unfocus();
+                },
                 validator: (value) => value == null || value.isEmpty ? 'Enter name' : null,
               ),
               const SizedBox(height: 16),

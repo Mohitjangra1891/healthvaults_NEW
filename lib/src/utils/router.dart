@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthvaults/src/common/views/SplashScreen.dart';
 import 'package:healthvaults/src/features/auth/views/addUserDetailsScreen.dart';
+import 'package:healthvaults/src/features/auth/views/forgotPassword/email_sent_screen.dart';
 import 'package:healthvaults/src/features/auth/views/loginScreen.dart';
 import 'package:healthvaults/src/features/profiletab/PrivacyScreen.dart';
 import 'package:healthvaults/src/homePage.dart';
 
+import '../features/auth/views/forgotPassword/forgotPasswod_screen.dart';
 import '../features/auth/views/onboardingScreen.dart';
 import '../features/goal/views/myGoalScreen.dart';
 import '../features/goal/views/setYourGoalScreen.dart';
@@ -20,6 +22,8 @@ class routeNames {
   static String onboarding = '/onboarding';
   static String home = '/home';
   static String login = '/login';
+  static String forgotPassword = '/forgotPassword';
+  static String emailSent = '/emailSent';
   static String addDetails = '/addDetails';
   static String otpVerify = '/otpVerify';
   static String profile = '/profile';
@@ -57,7 +61,22 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return LoginScreen();
       },
+    ),   GoRoute(
+      name: routeNames.forgotPassword,
+      path: routeNames.forgotPassword,
+      builder: (BuildContext context, GoRouterState state) {
+        return forgotPassword_screen();
+      },
     ),
+    GoRoute(
+      name: routeNames.emailSent,
+      path: routeNames.emailSent,
+      builder: (context, state) {
+        final email = state.extra as String? ?? '';
+        return email_sent_screen(email: email);
+      },
+    ),
+
     GoRoute(
       name: routeNames.addDetails,
       path: "${routeNames.addDetails}",

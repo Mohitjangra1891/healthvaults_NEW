@@ -24,16 +24,26 @@ class ProfileImagePicker2 extends StatelessWidget {
         final picked = await picker.pickImage(source: ImageSource.gallery);
         if (picked != null) onImagePicked(picked);
       },
-      child: CircleAvatar(
-        radius: 50,
-        backgroundImage: image != null
-            ? FileImage(File(image!.path))
-            : (fallbackUrl != null
-            ? NetworkImage(fallbackUrl!)
-            : null) as ImageProvider<Object>?,
-        child: image == null && fallbackUrl == null
-            ? const Icon(Icons.camera_alt, size: 40)
-            : null,
+      child: Column(
+        spacing: 22,
+        children: [
+          CircleAvatar(
+            radius: 50,
+            backgroundImage: image != null
+                ? FileImage(File(image!.path))
+                : (fallbackUrl != null
+                ? NetworkImage(fallbackUrl!)
+                : null) as ImageProvider<Object>?,
+            child: image == null && fallbackUrl == null
+                ? const Icon(Icons.camera_alt, size: 40)
+                : null,
+          ),
+          Text(
+            "Add Photo",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 17 ,color: Colors.blue),
+          ),
+        ],
       ),
     );
   }

@@ -35,6 +35,32 @@ final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) {
 class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier() : super(AuthInitial());
 
+  Future<void> sendPasswordResetEmail(String email) async {
+    state = AuthLoading();
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      state = AuthSuccess();
+
+    } on FirebaseAuthException catch (e) {
+      state = AuthError(e.code);
+
+      switch (e.code) {
+        case 'invalid-email':
+          throw 'The email address is not valid.';
+        case 'user-not-found':
+          throw 'No user found with this email.';
+        case 'missing-email':
+          throw 'Please enter your email.';
+        default:
+          throw 'Something went wrong. Please try again.';
+      }
+    } catch (e) {
+      state = AuthError(e.toString());
+
+      throw 'An unexpected error occurred.';
+    }
+  }
+
   Future<void> login(String email, String password, BuildContext context, WidgetRef ref) async {
     state = AuthLoading();
     try {
@@ -112,7 +138,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
       await SharedPrefHelper.saveUserEmail("");
       state = AuthSuccess(); // will trigger splash to go to login
       log("✅ logged out");
-
     } catch (e) {
       state = AuthError('Logout failed');
     }
@@ -143,7 +168,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       debugPrint('Created At: ${userModel.createdAt}');
       debugPrint('Modified At: ${userModel.modifiedAt}');
       await ref.read(userProfileProvider.notifier).updateUser(userModel);
-     await ref.read(workoutPlanProvider.notifier).fetchPlanWithFallback(userId: FirebaseAuth.instance.currentUser!.uid);
+      await ref.read(workoutPlanProvider.notifier).fetchPlanWithFallback(userId: FirebaseAuth.instance.currentUser!.uid);
 
       context.goNamed(routeNames.home);
     } else {

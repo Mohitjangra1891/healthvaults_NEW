@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -28,15 +27,15 @@ class _SignInFormState extends ConsumerState<SignInForm> {
   final _passwordController = TextEditingController();
   bool _obscurePassword = true;
 
-  void _listenAuthState(AuthState state) {
-    if (state is AuthSuccess) {
-      context.goNamed(routeNames.home);
-      ref.read(authProvider.notifier).reset();
-    } else if (state is AuthError) {
-      showToast(state.message);
-      ref.read(authProvider.notifier).reset();
-    }
-  }
+  // void _listenAuthState(AuthState state) {
+  //   if (state is AuthSuccess) {
+  //     context.goNamed(routeNames.home);
+  //     ref.read(authProvider.notifier).reset();
+  //   } else if (state is AuthError) {
+  //     showToast(state.message);
+  //     ref.read(authProvider.notifier).reset();
+  //   }
+  // }
 
   @override
   void dispose() {
@@ -47,7 +46,9 @@ class _SignInFormState extends ConsumerState<SignInForm> {
 
   @override
   Widget build(BuildContext context) {
-    final isLight = Theme.of(context).brightness == Brightness.light;
+    final isLight = Theme
+        .of(context)
+        .brightness == Brightness.light;
     final authState = ref.watch(authProvider);
     // ref.listen<AuthState>(authProvider, (_, state) => _listenAuthState(state));
 
@@ -104,11 +105,14 @@ class _SignInFormState extends ConsumerState<SignInForm> {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {
-                // Implement your “Forgot Password” flow here
+                context.pushNamed(routeNames.forgotPassword);
               },
               child: Text(
                 'Forgot Password?',
-                style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                style: TextStyle(color: Theme
+                    .of(context)
+                    .colorScheme
+                    .onSurface),
               ),
             ),
           ),
@@ -121,9 +125,9 @@ class _SignInFormState extends ConsumerState<SignInForm> {
                 ? null
                 : () {
               ref.read(authProvider.notifier).login(
-                _emailController.text.trim(),
-                _passwordController.text.toString(),
-                context,ref
+                  _emailController.text.trim(),
+                  _passwordController.text.toString(),
+                  context, ref
               );
             },
             style: ElevatedButton.styleFrom(
@@ -135,6 +139,7 @@ class _SignInFormState extends ConsumerState<SignInForm> {
               height: 20,
               child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
             )
+
                 : Text(
               'Sign In',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: isLight ? Colors.white : Colors.black),
